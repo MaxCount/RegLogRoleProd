@@ -1,7 +1,6 @@
 package com.example.fuck.services;
 
 import com.example.fuck.models.Role;
-import com.example.fuck.models.TableRoles;
 import com.example.fuck.models.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -16,19 +15,19 @@ public class CustomUserDetails implements UserDetails {
 
     private User user;
 
+
+
     public CustomUserDetails(User user) {
         this.user = user;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        Set<Role> roles = user.getRoles();
+        Set<Role> roles  = user.getRoles();
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-
-        for (Role role : roles) {
+        for (Role role : roles){
             authorities.add(new SimpleGrantedAuthority(role.getName()));
         }
-
         return authorities;
     }
 
@@ -65,6 +64,5 @@ public class CustomUserDetails implements UserDetails {
     public String getFullName() {
         return user.getUsername();
     }
-
 
 }

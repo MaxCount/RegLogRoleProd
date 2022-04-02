@@ -24,13 +24,14 @@ public class User {
     @Column(name = "enabled")
     private boolean enabled = true;
 
+
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn (name = "role_id")
     )
-    Set<Role> roles = new HashSet<>();
+    private Set<Role> roles = new HashSet<>();
 
     public Long getUser_id() {
         return id;
@@ -88,11 +89,23 @@ public class User {
         this.enabled = enabled;
     }
 
-    public Set<Role> getRoles( /*Long id*/ ) {
+//    public Set<Role> getRoles( /*Long id*/ ) {
+//        return roles;
+//    }
+//
+//
+//    public void setRoles(Set<Role> roles) {
+//        this.roles = roles;
+//    }
+    public Set<Role> getRoles() {
         return roles;
     }
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public void addRole(Role role){
+        this.roles.add(role);
     }
 }
