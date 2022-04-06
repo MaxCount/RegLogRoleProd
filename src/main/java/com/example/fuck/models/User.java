@@ -89,14 +89,6 @@ public class User {
         this.enabled = enabled;
     }
 
-//    public Set<Role> getRoles( /*Long id*/ ) {
-//        return roles;
-//    }
-//
-//
-//    public void setRoles(Set<Role> roles) {
-//        this.roles = roles;
-//    }
     public Set<Role> getRoles() {
         return roles;
     }

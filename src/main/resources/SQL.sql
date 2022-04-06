@@ -1,0 +1,42 @@
+--configuration of sql
+
+--create table product
+--(
+--    id     bigint auto_increment
+--        primary key,
+--    brand  varchar(255) null,
+--    madein varchar(255) null,
+--    name   varchar(255) null,
+--    price  float        not null
+--);
+--
+--create table roles
+--(
+--    role_id int auto_increment
+--        primary key,
+--    name    varchar(45) not null
+--);
+--
+--create table users
+--(
+--    password varchar(64)       not null,
+--    email    varchar(45)       not null,
+--    enabled  tinyint default 0 null,
+--    username varchar(45)       not null,
+--    roles    varchar(30)       not null,
+--    id       int auto_increment
+--        primary key,
+--    constraint users_email_uindex
+--        unique (email)
+--);
+--
+--create table users_roles
+--(
+--    user_id int           not null,
+--    role_id int default 1 not null,
+--    constraint role_fk
+--        foreign key (role_id) references roles (role_id),
+--    constraint roles_fk
+--        foreign key (user_id) references users (id)
+--            on delete cascade
+--);

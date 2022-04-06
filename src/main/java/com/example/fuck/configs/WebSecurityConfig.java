@@ -16,7 +16,7 @@ import javax.sql.DataSource;
 
 @Configuration // означает, что класс может быть использован контейнером Spring IoC как конфигурационный класс для бинов.
 @EnableWebSecurity // конфигурация Spring Security была определена любым WebSecurityConfigurerили более вероятным путем
-// расширения WebSecurityConfigurerAdapterбазового класса и переопределения отдельных методов
+// расширения WebSecurityConfigurerAdapter базового класса и переопределения отдельных методов
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
@@ -55,10 +55,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/edit/**").hasAnyAuthority("ADMIN", "EDITOR")
                 .antMatchers("/delete/**").hasAuthority("ADMIN")
                 .anyRequest().permitAll()
-                //
-                //.antMatchers("/users").authenticated()
-                //.anyRequest().permitAll()
-                //
                 .and()
                 .formLogin()
                 .usernameParameter("username")
@@ -68,6 +64,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout().logoutSuccessUrl("/").permitAll();
 
     }
-
-
 }
